@@ -1,0 +1,13 @@
+<h1>Current routes</h1>
+
+<%= link_to('Add a journey', new_driver_path) %>
+
+<% @drivers.each do |driver| %>
+  <div><%= driver.name %></div>
+  <% driver.routes.each do |route| %>
+  <div><%= route.date %></div>
+  <div><%= route.start_location %></div>
+  <div><%= route.end_location %></div>
+  <% end %>
+  <br>
+<% end %>
