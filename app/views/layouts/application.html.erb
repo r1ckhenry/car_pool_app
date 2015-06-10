@@ -3,6 +3,7 @@
 <head>
   <title>CarPoolApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAG21H6gJDiON0CVeYQjcfGb1jXVtDqa1s">
@@ -11,14 +12,82 @@
 </head>
 <body onload="initialize()">
 
-  <input type="button" onclick="calcRoute()" value="Click">
+<header>
+  <div class="box box-2">
+    <div class="brand">
+      <i class="fa fa-car"></i>
+      <span>CarPool</span>
+    </div>
+  </div>
+  <div class="box box-8">
+    <div class="float-right">
+      <%= link_to("<span id='newJourney'>Add a journey <i class='fa fa-plus-circle'></i></span>", new_driver_path, id: 'newJourney', onclick: "initialize()") %>
+    </div>
+  </div>
+</header>
 
-<nav>
-  <%= link_to('All journeys', root_path) %>
-  <%= link_to('Add a journey', new_driver_path, id: 'newJourney') %>
-</nav>
+<aside class="box box-2">
+  <nav class="main-menu">
+    <ul>
+      <li><%= link_to('All journeys', root_path) %></li>
+    </ul>
+  </nav>
+</aside>
 
-<%= yield %>
+<section class="box box-4">
+  <div id="map-canvas"></div>
+  <div id="routeInfo">
+    <div class="box box-4">
+      
+    </div>
+    <div class="box box-6">
+      
+    </div>
+  </div>
+</section>
+
+<main class="box box-2">
+  <%= yield %>
+</main>
+
+<aside id='rightViewInfo' class="box box-2">
+  
+  <div id="newDriverForm">
+
+  <%= form_for @driver do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :date %>
+    <%= f.text_field :date %>
+
+    <%= f.label :start_location %>
+    <%= f.text_field :start_location %>
+
+    <%= f.label :end_location %>
+    <%= f.text_field :end_location %>
+
+    <%= f.label :cost %>
+    <%= f.text_field :cost %>
+
+    <%= f.label :how_many %>
+    <%= f.text_field :how_many %>
+
+    <%= f.label :est_time %>
+    <%= f.text_field :est_time %>
+
+    <%= f.submit 'Submit', id: 'newDriverSubmit' %>
+
+  <% end %>
+
+</div>
+</aside>
+
+
+
+
+
 
 </body>
 </html>

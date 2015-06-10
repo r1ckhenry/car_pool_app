@@ -1,19 +1,17 @@
-<h1>Current routes</h1>
-
-<div id="newDriverForm"></div>
-
-<div id="map-canvas"></div>
-
 <div class="journey-listings">
+  <h2>Latest routes</h2>
   <% @drivers.each do |driver| %>
-    <div><%= link_to driver.name, driver %></div>
-    <div><%= driver.date %></div>
+    <div class="journey-wrapper">
       <div class="locations">
-        <div class="start-location"><%= driver.start_location %></div>
-        <div class="end-location"><%= driver.end_location %></div>
+        <%= link_to driver.start_location + ' to ' + driver.end_location, driver, class: 'journeyRouteShow' %>
+        <span class="float-right cost">
+          £<%= driver.cost %>
+        </span>
       </div>
+      <div class="date"><%= driver.date %></div>
+      <div class="driver-name">
+        <%= driver.name %>
+      </div>
+    </div>
   <% end %>
 </div>
-
-
-<br>

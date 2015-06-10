@@ -1,3 +1,5 @@
+// GOOGLE MAPS
+
 var directionsDisplay, directionsService, map;
 
 function initialize() {
@@ -14,21 +16,8 @@ function initialize() {
 
 function calcRoute(start, end) {
   var request = {
-    origin: 'Chicago',
-    destination: 'Boston',
-    travelMode: google.maps.TravelMode.DRIVING
-  };
-  directionsService.route(request, function(result, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(result);
-    }
-  });
-}
-
-function calcRouteAgain(start, end) {
-  var request = {
-    origin: 'New York',
-    destination: 'Boston',
+    origin: start,
+    destination: end,
     travelMode: google.maps.TravelMode.DRIVING
   };
   directionsService.route(request, function(result, status) {
@@ -59,3 +48,6 @@ function codeAddress() {
   //   console.log(e)
   // })
 }
+
+
+

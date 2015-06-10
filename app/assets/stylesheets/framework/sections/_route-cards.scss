@@ -1,0 +1,9 @@
+#routeInfo {
+  color: #fff;
+  background-color: rgba($prim-col, 0.8);
+  height: 100%;
+  padding: $padding-large-vertical $padding-large-horizontal;
+  .route {
+    font-size: $font-large;
+  }
+}

@@ -2,6 +2,8 @@ class DriversController < ApplicationController
   
   def index
     @drivers = Driver.all.order(created_at: :desc)
+    @driver = Driver.new
+    # render json: @driver
   end
 
   def new 
@@ -20,6 +22,7 @@ class DriversController < ApplicationController
 
   def show 
     @driver = Driver.find(params[:id])
+    render json: @driver
   end
 
   def edit
