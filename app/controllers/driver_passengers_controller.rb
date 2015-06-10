@@ -1,0 +1,5 @@
+class DriverPassengersController < ApplicationController
+
+
+
+end

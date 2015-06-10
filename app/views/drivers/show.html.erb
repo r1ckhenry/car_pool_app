@@ -1,0 +1,25 @@
+<h1>Show page</h1>
+
+
+
+  <%= @driver.name %>
+  <p><b>On:</b> <%= @driver.date %></p>
+  <p><b>Going from:</b> <%= @driver.start_location %></p>
+  <p><b>To:</b><%= @driver.end_location %></p>
+  <p><b>Cost:</b><%= @driver.cost %></p>
+  <p><b>I can take:</b><%= @driver.how_many %></p>
+  <p><b>Estimate journey time:</b><%= @driver.est_time %></p>
+
+  <h4>Passengers going on this journey:</h4>
+
+  <p><% @driver.passengers.each do |passenger| %></p>
+        <%= passenger.name %>
+      <% end %>
+
+  <p><%= link_to 'Edit this journey', edit_driver_path(@driver) %></p>
+  <p><%= link_to 'Cancel this journey', driver_path, method: :delete %></p>
+  <p><%= link_to 'Add passenger', new_driver_passenger_path(@driver) %></p>
+
+
+
+

@@ -4,9 +4,19 @@
   <title>CarPoolApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAG21H6gJDiON0CVeYQjcfGb1jXVtDqa1s">
+    </script>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body onload="initialize()">
+
+  <input type="button" onclick="calcRoute()" value="Click">
+
+<nav>
+  <%= link_to('All journeys', root_path) %>
+  <%= link_to('Add a journey', new_driver_path, id: 'newJourney') %>
+</nav>
 
 <%= yield %>
 

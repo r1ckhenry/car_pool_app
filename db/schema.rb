@@ -11,39 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608150634) do
+ActiveRecord::Schema.define(version: 20150610130638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "drivers", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "offers", force: :cascade do |t|
-    t.integer  "route_id"
+  create_table "driver_passengers", force: :cascade do |t|
     t.integer  "passenger_id"
-    t.boolean  "status"
+    t.integer  "driver_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "drivers", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.date     "date"
+    t.string   "start_location"
+    t.string   "end_location"
+    t.integer  "cost"
+    t.integer  "how_many"
+    t.integer  "est_time"
   end
 
   create_table "passengers", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "routes", force: :cascade do |t|
-    t.integer  "passenger_id"
-    t.integer  "driver_id"
-    t.date     "date"
-    t.string   "start_location"
-    t.string   "end_location"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
   end
 
 end

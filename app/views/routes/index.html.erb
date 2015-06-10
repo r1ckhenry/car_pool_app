@@ -1,0 +1,9 @@
+<h1>Current routes</h1>
+
+<% @routes.each do |route| %>
+  <div><%= link_to "#{route.start_location} to #{route.end_location}", route_path(route) %></div>
+  <div><%= route.date %></div>
+
+  <br>
+<% end %>
+

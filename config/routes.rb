@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'routes/new'
+  get 'passengers/new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  resources :drivers do 
-    resources :routes
+  resources :drivers do
+    resources :driver_passengers
+    resources :passengers
   end
+
+
 
   # You can have the root of your site routed with "root"
   root 'drivers#index'

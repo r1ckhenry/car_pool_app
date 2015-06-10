@@ -1,0 +1,13 @@
+<h1>Passengers#new</h1>
+<p>Find me in app/views/passengers/new.html.erb</p>
+
+<%= form_for [@driver, @passenger] do |f| %>
+    
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.submit 'submit' %>
+
+<% end %>
+
+

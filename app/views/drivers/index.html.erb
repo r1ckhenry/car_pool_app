@@ -1,13 +1,19 @@
 <h1>Current routes</h1>
 
-<%= link_to('Add a journey', new_driver_path) %>
+<div id="newDriverForm"></div>
 
-<% @drivers.each do |driver| %>
-  <div><%= driver.name %></div>
-  <% driver.routes.each do |route| %>
-  <div><%= route.date %></div>
-  <div><%= route.start_location %></div>
-  <div><%= route.end_location %></div>
+<div id="map-canvas"></div>
+
+<div class="journey-listings">
+  <% @drivers.each do |driver| %>
+    <div><%= link_to driver.name, driver %></div>
+    <div><%= driver.date %></div>
+      <div class="locations">
+        <div class="start-location"><%= driver.start_location %></div>
+        <div class="end-location"><%= driver.end_location %></div>
+      </div>
   <% end %>
-  <br>
-<% end %>
+</div>
+
+
+<br>
