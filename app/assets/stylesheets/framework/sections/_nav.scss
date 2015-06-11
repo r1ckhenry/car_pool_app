@@ -1,20 +1,24 @@
-.main-menu {
-  height: 600px;
-  background-color: rgba($fourth-col, 0.2);
-  ul {
-    margin: 0;
-    list-style-type: none;
-    padding-left: 0;
-  }
-  li {
-    a {
-      line-height: $nav-line-height;
-      color: $nav-link-color;
-      text-decoration: none;
-      background-color: $prim-col;
-      padding: $padding-large-vertical $padding-large-horizontal;
-      display: block;
-      text-transform: uppercase;
+aside {
+  position: relative;
+  height: 100%;
+  .main-menu {
+    height: 100%;
+    background-color: rgba($fourth-col, 0.2);
+    ul {
+      margin: 0;
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      a {
+        line-height: $nav-line-height;
+        color: $nav-link-color;
+        text-decoration: none;
+        background-color: $prim-col;
+        padding: $padding-large-vertical $padding-large-horizontal;
+        display: block;
+        text-transform: uppercase;
+      }
     }
   }
 }

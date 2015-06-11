@@ -1,4 +1,10 @@
 <aside id='rightViewInfo' class="box box-2">
+
+  <div class="float-right">
+    <%= link_to( new_driver_path, id: 'newJourney', onclick: "initialize()") do %>
+      <span id='newJourney'>Add a journey <i class='fa fa-plus-circle'></i></span>
+    <% end %>
+  </div>
   
   <div id="newDriverForm" class="slideInRight">
 
@@ -29,6 +35,16 @@
 
   <% end %>
 
+  </div>
+
+  <div id="addPassengerForm">
+    <%#= form_for [@driver, @passenger] do |f| %>
+      
+      <%#= f.label :name %>
+      <%#= f.text_field :name %>
+      <%#= f.submit 'submit' %>
+
+    <%# end %>
   </div>
   
 </aside>

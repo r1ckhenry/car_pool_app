@@ -13,10 +13,14 @@
 <body onload="initialize()">
 
 <!-- Header & nav -->
-<%= render 'shared/header' %>
+<%#= render 'shared/header' %>
 
 <!-- Left hand nav -->
 <%= render 'shared/left_hand_nav' %>
+
+<main class="box box-2">
+  <%= yield %>
+</main>
 
 <section class="box box-4">
   <div id="map-canvas"></div>
@@ -34,10 +38,6 @@
     </div>
   </div>
 </section>
-
-<main class="box box-2">
-  <%= yield %>
-</main>
 
 <!-- Form for adding new journey -->
 <%= render 'shared/new_driver_form' %>

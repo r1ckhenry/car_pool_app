@@ -3,6 +3,7 @@ class DriversController < ApplicationController
   def index
     @drivers = Driver.all.order(created_at: :desc)
     @driver = Driver.new
+    puts params
   end
 
   def new 

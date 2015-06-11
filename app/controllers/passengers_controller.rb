@@ -7,9 +7,9 @@ class PassengersController < ApplicationController
 
   def create
     driver = Driver.find(params[:driver_id])
-    driver.passengers << Passenger.create(passenger_params)
+    driver.passengers << Passenger.create(name: params[:name])
 
-    redirect_to driver_path(driver)
+    redirect_to root_path
   end 
 
 

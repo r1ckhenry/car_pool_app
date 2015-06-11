@@ -7,7 +7,7 @@ function appendRouteToPage(response) {
       routeOutput += '<div class="time"><b>Estimated journey time:</b> ' + response.est_time + ' hours</div>';
   $('#routeInfo .box-6 .route-info').html(routeOutput);
   var btnOutput = '<button id="cancel-jouney" data-id="' + response.id + '" data-method="delete">Cancel</button>';
-      btnOutput += '<button id="add-passenger" data-id="' + response.id + '" data-method="delete">Add passenger</button>';
+      btnOutput += '<button id="add-passenger" data-id="' + response.id + '" data-method="update">Add passenger</button>';
   $('#routeInfo .box-4').html(btnOutput);
 }
 
@@ -90,12 +90,29 @@ function deleteJourney(e) {
   })
 }
 
+// Add passenger to journey
+function addPassenger(e) {
+  e.preventDefault();
+  var driverId = $(this).attr('data-id');
+  $.ajax({
+    type: 'POST',
+    url: '/drivers/' + driverId + '/passengers',
+    data: {
+      name: 'Jack',
+      driver_id: driverId
+    }
+  })
+  
+}
+
+
 $(document).ready(function(){
 
   $('#newJourney').on('click', showNewJourney);
   $('#newDriverForm').on('click', '#newDriverSubmit', postNewJourney);
   $(".journey-listings").on('click', '.journeyRouteShow', showJourneyDetails);
   $("#routeInfo").on('click', '#cancel-jouney', deleteJourney);
+  $("#routeInfo").on('click', '#add-passenger', addPassenger);
 
 });
 
