@@ -12,36 +12,25 @@
 </head>
 <body onload="initialize()">
 
-<header>
-  <div class="box box-2">
-    <div class="brand">
-      <i class="fa fa-car"></i>
-      <span>CarPool</span>
-    </div>
-  </div>
-  <div class="box box-8">
-    <div class="float-right">
-      <%= link_to("<span id='newJourney'>Add a journey <i class='fa fa-plus-circle'></i></span>", new_driver_path, id: 'newJourney', onclick: "initialize()") %>
-    </div>
-  </div>
-</header>
+<!-- Header & nav -->
+<%= render 'shared/header' %>
 
-<aside class="box box-2">
-  <nav class="main-menu">
-    <ul>
-      <li><%= link_to('All journeys', root_path) %></li>
-    </ul>
-  </nav>
-</aside>
+<!-- Left hand nav -->
+<%= render 'shared/left_hand_nav' %>
 
 <section class="box box-4">
   <div id="map-canvas"></div>
   <div id="routeInfo">
     <div class="box box-4">
-      
+      <!-- <a class="btn prim-btn">Edit this journey</a> -->
+      <!-- <button id="cancel-jouney">Cancel</button> -->
+      <%#= link_to 'Cancel', driver_path, id: 'cancel-journey', method: :delete %>
+      <!-- <a class="btn success-btn">Add passenger</a> -->
     </div>
     <div class="box box-6">
-      
+      <div class="route-info">
+        
+      </div>
     </div>
   </div>
 </section>
@@ -50,44 +39,8 @@
   <%= yield %>
 </main>
 
-<aside id='rightViewInfo' class="box box-2">
-  
-  <div id="newDriverForm">
-
-  <%= form_for @driver do |f| %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.label :date %>
-    <%= f.text_field :date %>
-
-    <%= f.label :start_location %>
-    <%= f.text_field :start_location %>
-
-    <%= f.label :end_location %>
-    <%= f.text_field :end_location %>
-
-    <%= f.label :cost %>
-    <%= f.text_field :cost %>
-
-    <%= f.label :how_many %>
-    <%= f.text_field :how_many %>
-
-    <%= f.label :est_time %>
-    <%= f.text_field :est_time %>
-
-    <%= f.submit 'Submit', id: 'newDriverSubmit' %>
-
-  <% end %>
-
-</div>
-</aside>
-
-
-
-
-
+<!-- Form for adding new journey -->
+<%= render 'shared/new_driver_form' %>
 
 </body>
 </html>

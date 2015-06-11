@@ -16,6 +16,16 @@ header {
       color: darken($fourth-col, 32%);
     }
   }
+  #newJourney {
+    line-height: 49px;
+    margin-right: $margin-small-horizontal;
+    vertical-align: middle;
+    i {
+      font-size: $font-large;
+      color: $fourth-col;
+      vertical-align: middle;
+    }
+  }
 }
 
 

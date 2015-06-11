@@ -1,0 +1,15 @@
+<header>
+  <div class="box box-2">
+    <div class="brand">
+      <i class="fa fa-car"></i>
+      <span>CarPool</span>
+    </div>
+  </div>
+  <div class="box box-8">
+    <div class="float-right">
+      <%= link_to( new_driver_path, id: 'newJourney', onclick: "initialize()") do %>
+        <span id='newJourney'>Add a journey <i class='fa fa-plus-circle'></i></span>
+      <% end %>
+    </div>
+  </div>
+</header>

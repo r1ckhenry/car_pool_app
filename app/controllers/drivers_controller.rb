@@ -3,7 +3,6 @@ class DriversController < ApplicationController
   def index
     @drivers = Driver.all.order(created_at: :desc)
     @driver = Driver.new
-    # render json: @driver
   end
 
   def new 
@@ -14,7 +13,10 @@ class DriversController < ApplicationController
     driver = Driver.create(journey_create_params)
 
     if driver.save
-      redirect_to '/'
+      respond_to do |format|
+        format.html
+        format.json { render json: driver, status: 200 }
+      end
     else
       render 'new'
     end
@@ -27,6 +29,12 @@ class DriversController < ApplicationController
 
   def edit
     @driver = Driver.find(params[:id])
+    # code here for variable with info you need in edit form
+
+    respond_to do |format|
+      format.html
+      format.json { render json: {key: value, key: value} }
+    end
   end
 
   def update
