@@ -1,30 +1,28 @@
-header {
-  background-color: lighten($fourth-col, 10%);
-  .brand {
-    background-color: $fourth-col !important;
-    line-height: 35px;
-    font-size: $font-large;
-    padding: $padding-base-vertical $padding-base-horizontal;
-    color: #fff;
-    font-weight: 100;
-    i {
-      background-color: $sec-col;
-      padding: 10px;
-      border-radius: 50%;
-    }
-    span {
-      color: darken($fourth-col, 32%);
-    }
+
+.brand {
+  background-color: $fourth-col;
+  line-height: 35px;
+  font-size: $font-large;
+  padding: $padding-base-vertical $padding-base-horizontal;
+  color: #fff;
+  font-weight: 100;
+  i {
+    background-color: $prim-col;
+    padding:  11px 10px;
+    border-radius: 50%;
   }
-  #newJourney {
-    line-height: 49px;
-    margin-right: $margin-small-horizontal;
+  span {
+    color: #fff;
+  }
+}
+#newJourney {
+  line-height: 50px;
+  margin-left: 6px;
+  vertical-align: middle;
+  i {
+    font-size: $font-large;
+    color: $fourth-col;
     vertical-align: middle;
-    i {
-      font-size: $font-large;
-      color: $fourth-col;
-      vertical-align: middle;
-    }
   }
 }
 

@@ -1,6 +1,6 @@
 <div class="journey-listings">
   <% @drivers.each do |driver| %>
-    <div class="journey-wrapper">
+    <div data-id="<%= driver.id %>" class="journey-wrapper">
       <div class="locations">
         <%= link_to driver.start_location + ' to ' + driver.end_location, driver, class: 'journeyRouteShow' %>
         <span class="float-right cost">

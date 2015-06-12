@@ -1,5 +1,5 @@
 main {
-  background-color: #fff;
+  background-color: $prim-col;
   height: 100%;
   overflow-y:scroll;
   .journey-listings{
@@ -15,14 +15,15 @@ main {
       .date {
         font-size: $font-small;
         margin: $margin-small-vertical 0;
-        color: lighten($text-color, 10%);
+        color: darken($prim-col, 20%);
       }
       .cost {
-        background-color: rgba($success-col, 1);
+        background-color: rgba($fourth-col, 1);
         font-size: $font-small;
         color: #fff;
         padding: 12px 10px;
         border-radius: 50%;
+        border: 2px solid #fff;
       }
     }
   }

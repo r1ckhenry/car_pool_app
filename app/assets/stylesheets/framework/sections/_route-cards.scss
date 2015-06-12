@@ -1,10 +1,26 @@
 #routeInfo {
   color: #fff;
-  background-color: rgba($prim-col, 0.8);
   height: 100%;
   padding: $padding-large-vertical $padding-large-horizontal;
   .route-info {
-    padding: $padding-large-horizontal $padding-large-horizontal;
+    padding: 0 $padding-large-horizontal;
+    i {
+      color: $third-col;
+      font-size: 24px;
+      margin: $padding-base-vertical 0;
+    }
+    .fa-calendar-o {
+      font-size: 20px;
+      margin-right: 5px;
+    }
+    .fa-car {
+      font-size: 17px;
+      margin-right: 3px;
+    }
+    .fa-users {
+      font-size: 18px;
+      margin-right: 3px;
+    }
   }
   .route {
     font-size: $font-large;

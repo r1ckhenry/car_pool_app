@@ -1,0 +1,12 @@
+#rightViewInfo {
+  position: absolute;
+  top: 0;
+  right: -10%;
+  z-index: 1;
+  width: 20%;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+
+#rightViewInfo:hover {
+  right: 0%;
+} 

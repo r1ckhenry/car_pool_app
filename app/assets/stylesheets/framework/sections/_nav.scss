@@ -3,22 +3,29 @@ aside {
   height: 100%;
   .main-menu {
     height: 100%;
-    background-color: rgba($fourth-col, 0.2);
+    background-color: rgba($fourth-col, 1);
     ul {
       margin: 0;
       list-style-type: none;
       padding-left: 0;
     }
     li {
+      margin: $margin-small-vertical 0;
       a {
         line-height: $nav-line-height;
-        color: $nav-link-color;
+        color: lighten($fourth-col, 30%);
         text-decoration: none;
-        background-color: $prim-col;
+        background-color: darken($fourth-col, 15%);
         padding: $padding-large-vertical $padding-large-horizontal;
         display: block;
         text-transform: uppercase;
+        margin-right: $margin-large-horizontal;
+        border-radius: 0 $border-radius-standard  $border-radius-standard 0;
       }
     }
   }
+}
+  
+#rightViewInfo {
+  background-color: $third-col;
 }

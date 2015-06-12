@@ -1,13 +1,13 @@
 function appendRouteToPage(response) {
   calcRoute(response.start_location, response.end_location);
-  var routeOutput =  '<div class="route" data-id="'+ response.id +'">' + response.start_location + ' to ' + response.end_location + '</div>';
-      routeOutput += '<small>' + response.date + '</small>';
-      routeOutput += '<div class="name">' + response.name + '</div>';
-      routeOutput += '<div class="volume"><b>Can take:</b> ' + response.how_many + ' passengers</div>';
-      routeOutput += '<div class="time"><b>Estimated journey time:</b> ' + response.est_time + ' hours</div>';
+  var routeOutput =  '<div class="route" data-id="'+ response.id +'"><i class="fa fa-compass"></i> ' + response.start_location + ' to ' + response.end_location + '</div>';
+      routeOutput += '<small><i class="fa fa-calendar-o"></i> ' + response.date + '</small>';
+      routeOutput += '<div class="name"><i class="fa fa-car"></i> ' + response.name + '</div>';
+      routeOutput += '<div class="volume"><i class="fa fa-users"></i> ' + response.how_many + ' passengers: ' + response.passengers.forEach(function(e,i){}) + '</div>';
+      routeOutput += '<div class="time"><i class="fa fa-clock-o"></i>  ' + response.est_time + ' hours</div>';
   $('#routeInfo .box-6 .route-info').html(routeOutput);
-  var btnOutput = '<button id="cancel-jouney" data-id="' + response.id + '" data-method="delete">Cancel</button>';
-      btnOutput += '<button id="add-passenger" data-id="' + response.id + '" data-method="update">Add passenger</button>';
+  var btnOutput = '<button id="add-passenger" class="btn prim-btn" data-id="' + response.id + '" data-method="update">Add passenger</button>';
+      btnOutput += '<button id="cancel-jouney" class="btn alert-btn" data-id="' + response.id + '" data-method="delete">Cancel</button>';
   $('#routeInfo .box-4').html(btnOutput);
 }
 
@@ -20,8 +20,6 @@ function addNewJourneyToListings(response) {
       journeyListing += '<div class="driver-name">' + response.name + '</div></div>';
   $('.journey-listings').prepend(journeyListing);
 }
-
-
 
 // Shows the new form journey via AJAX request
 function showNewJourney(e) {
@@ -72,8 +70,10 @@ function showJourneyDetails(e) {
   $this = $(this);
   $.ajax({
     type: 'GET',
-    url: $this.attr('href')
+    url: $this.attr('href'),
+    dataType: 'json'
   }).done(function(response){
+    console.log(response.passengers)
     appendRouteToPage(response)
   });
 }
@@ -81,28 +81,36 @@ function showJourneyDetails(e) {
 // Delete journey from database Ajax
 function deleteJourney(e) {
   var driverId = $(this).attr('data-id');
-  console.log(driverId);
+  $("[data-id='" + driverId + "']").remove();
   $.ajax({
     type: 'DELETE',
     url: '/drivers/' + driverId
   }).done(function(response){
-    console.log(response);
+    
   })
 }
 
 // Add passenger to journey
 function addPassenger(e) {
   e.preventDefault();
+  $('#addPassengerForm').toggle();
+  var driverId = $(this).attr('data-id');
+  $("#addMe").attr('data-id', driverId);
+}
+
+// Add passenger to database via AJAX
+function addPassengerToJourney(e) {
+  e.preventDefault();
+  var newPassenger = $('#passengerName').val();
   var driverId = $(this).attr('data-id');
   $.ajax({
     type: 'POST',
     url: '/drivers/' + driverId + '/passengers',
     data: {
-      name: 'Jack',
+      name: newPassenger,
       driver_id: driverId
     }
-  })
-  
+  });
 }
 
 
@@ -113,6 +121,7 @@ $(document).ready(function(){
   $(".journey-listings").on('click', '.journeyRouteShow', showJourneyDetails);
   $("#routeInfo").on('click', '#cancel-jouney', deleteJourney);
   $("#routeInfo").on('click', '#add-passenger', addPassenger);
+  $('#addMe').on('click', addPassengerToJourney);
 
 });
 
